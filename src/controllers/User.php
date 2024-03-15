@@ -10,7 +10,17 @@ class User {
         $this->run();
     }
 
-    public function run() {
-        var_dump($this->params);
+    protected function header() {
+        header('Access-Control-Allow-Origin: *');
+        header("Content-type: application/json; charset=utf-8");
+    }
+
+    protected function run() {
+        $this->header();
+
+        echo json_encode([
+            'message' => 'OK',
+            'code' =>  200
+        ]);
     }
 }
