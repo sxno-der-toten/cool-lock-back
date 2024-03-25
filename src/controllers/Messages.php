@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class User {
+class Messages {
   protected array $params;
   protected string $reqMethod;
 
@@ -13,12 +13,20 @@ class User {
     $this->run();
   }
 
-  protected function getUser() {
+  protected function getMessages() {
+    $message = [
+      'author' => 'Cyril Vimard',
+      'avatar' => 'https://media.wired.com/photos/59271340ac01987bf0138709/1:1/w_200,h_200,c_limit/SpiderMan.jpg',
+      'type' => 'bot',
+      'date' => '25/03/2024',
+      'text' => 'Hello World',
+      'toto' => 'tutu'
+    ];
     return [
-      'firstName' => 'Cyril',
-      'lastName' => 'Vimard',
-      'promo' => 'B1',
-      'school' => 'Coda'
+      $message,
+      $message,
+      $message,
+      $message
     ];
   }
 
@@ -27,9 +35,8 @@ class User {
     header('Content-type: application/json; charset=utf-8');
   }
 
-
   protected function ifMethodExist() {
-    $method = $this->reqMethod.'User';
+    $method = $this->reqMethod.'Messages';
 
     if (method_exists($this, $method)) {
       echo json_encode($this->$method());
