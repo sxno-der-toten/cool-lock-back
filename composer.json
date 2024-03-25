@@ -1,5 +1,4 @@
 {
-    "name": "xzen/demo",
     "autoload": {
         "psr-4": {
             "App\\": "src/",
